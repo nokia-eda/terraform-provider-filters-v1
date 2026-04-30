@@ -1,0 +1,86 @@
+provider:
+  name: filters
+
+data_sources:
+  app_group:
+    read:
+      path: /apps/filters.eda.nokia.com
+      method: GET
+
+  control_plane_filter:
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/{name}
+      method: GET
+
+  control_plane_filter_list:
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters
+      method: GET
+
+  filter:
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters/{name}
+      method: GET
+
+  filter_list:
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters
+      method: GET
+
+  prefix_set:
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets/{name}
+      method: GET
+
+  prefix_set_list:
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets
+      method: GET
+
+  resource_list:
+    read:
+      path: /apps/filters.eda.nokia.com/v1
+      method: GET
+
+resources:
+  control_plane_filter:
+    create:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters
+      method: POST
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/{name}
+      method: GET
+    update:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/{name}
+      method: PUT
+    delete:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/{name}
+      method: DELETE
+
+  filter:
+    create:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters
+      method: POST
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters/{name}
+      method: GET
+    update:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters/{name}
+      method: PUT
+    delete:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters/{name}
+      method: DELETE
+
+  prefix_set:
+    create:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets
+      method: POST
+    read:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets/{name}
+      method: GET
+    update:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets/{name}
+      method: PUT
+    delete:
+      path: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets/{name}
+      method: DELETE
