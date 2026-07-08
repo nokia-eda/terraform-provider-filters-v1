@@ -1,0 +1,52 @@
+datasources:
+  - model_name: app_group
+    oas_endpoint: /apps/filters.eda.nokia.com
+    oas_schema: AppGroup
+  - model_name: resource_list
+    oas_endpoint: /apps/filters.eda.nokia.com/v1
+    oas_schema: ResourceList
+  - model_name: control_plane_filter_list
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters
+    oas_schema: com.nokia.eda.filters.v1.ControlPlaneFilterList
+  - model_name: control_plane_filter
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/{name}
+    oas_schema: com.nokia.eda.filters.v1.ControlPlaneFilter
+  - model_name: filter_list
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters
+    oas_schema: com.nokia.eda.filters.v1.FilterList
+  - model_name: filter
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters/{name}
+    oas_schema: com.nokia.eda.filters.v1.Filter
+  - model_name: prefix_set_list
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets
+    oas_schema: com.nokia.eda.filters.v1.PrefixSetList
+  - model_name: prefix_set
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets/{name}
+    oas_schema: com.nokia.eda.filters.v1.PrefixSet
+
+resources:
+  - model_name: control_plane_filter
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters
+    oas_schema: com.nokia.eda.filters.v1.ControlPlaneFilter
+  - model_name: filter
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters
+    oas_schema: com.nokia.eda.filters.v1.Filter
+  - model_name: prefix_set
+    oas_endpoint: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets
+    oas_schema: com.nokia.eda.filters.v1.PrefixSet
+
+qualified:
+  datasources:
+    - oas_schema: IntentTargets
+      get: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/{name}/_targets
+    - oas_schema: ResourceHistory
+      get: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/{name}/_revs
+    - oas_schema: UIResult
+      get: /apps/filters.eda.nokia.com/v1/_ui/{pathname}
+    - oas_schema: com.nokia.eda.filters.v1.ControlPlaneFilter_DeletedResources
+      get: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/controlplanefilters/_deleted
+    - oas_schema: com.nokia.eda.filters.v1.Filter_DeletedResources
+      get: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/filters/_deleted
+    - oas_schema: com.nokia.eda.filters.v1.PrefixSet_DeletedResources
+      get: /apps/filters.eda.nokia.com/v1/namespaces/{namespace}/prefixsets/_deleted
+  resources:
