@@ -105,7 +105,7 @@ func PrefixSetDataSourceSchema(ctx context.Context) schema.Schema {
 						NestedObject: schema.NestedAttributeObject{
 							Attributes: map[string]schema.Attribute{
 								"prefix": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "The IPv4 or IPv6 prefix in CIDR notation.",
 									MarkdownDescription: "The IPv4 or IPv6 prefix in CIDR notation.",
 								},
@@ -116,7 +116,7 @@ func PrefixSetDataSourceSchema(ctx context.Context) schema.Schema {
 								},
 							},
 						},
-						Optional:            true,
+						Computed:            true,
 						Description:         "List of IPv4 or IPv6 prefixes in CIDR notation.",
 						MarkdownDescription: "List of IPv4 or IPv6 prefixes in CIDR notation.",
 					},
@@ -126,7 +126,7 @@ func PrefixSetDataSourceSchema(ctx context.Context) schema.Schema {
 						AttrTypes: SpecValue{}.AttributeTypes(ctx),
 					},
 				},
-				Optional:            true,
+				Computed:            true,
 				Description:         "PrefixSetSpec defines a collection of IP prefixes. Each set should contain only IPv4 or IPv6 prefixes.",
 				MarkdownDescription: "PrefixSetSpec defines a collection of IP prefixes. Each set should contain only IPv4 or IPv6 prefixes.",
 			},

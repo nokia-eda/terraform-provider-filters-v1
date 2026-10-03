@@ -132,6 +132,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 							Attributes: map[string]schema.Attribute{
 								"description": schema.StringAttribute{
 									Optional:            true,
+									Computed:            true,
 									Description:         "Description of the FilterEntry.",
 									MarkdownDescription: "Description of the FilterEntry.",
 								},
@@ -139,6 +140,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 									Attributes: map[string]schema.Attribute{
 										"action": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "An action to take, either 'Accept','Drop', or 'RateLimit'.",
 											MarkdownDescription: "An action to take, either 'Accept','Drop', or 'RateLimit'.",
 											Validators: []validator.String{
@@ -151,6 +153,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"destination_port_name": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Destination port to match by name.",
 											MarkdownDescription: "Destination port to match by name.",
 											Validators: []validator.String{
@@ -327,6 +330,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"destination_port_number": schema.Int64Attribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Destination port to match by numerical value.",
 											MarkdownDescription: "Destination port to match by numerical value.",
 											Validators: []validator.Int64{
@@ -335,6 +339,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"destination_port_operator": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Operator to use when matching destinationPort, either Equals, GreaterOrEquals, or LessOrEquals.",
 											MarkdownDescription: "Operator to use when matching destinationPort, either Equals, GreaterOrEquals, or LessOrEquals.",
 											Validators: []validator.String{
@@ -347,17 +352,20 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"destination_port_range": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Range of destination ports to match, in the format n-m, e.g. 100-200,  The start and end of the range must be port numbers.",
 											MarkdownDescription: "Range of destination ports to match, in the format n-m, e.g. 100-200,  The start and end of the range must be port numbers.",
 										},
 										"destination_prefix": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Destination prefix to match.",
 											MarkdownDescription: "Destination prefix to match.",
 										},
 										"destination_prefix_sets": schema.ListAttribute{
 											ElementType:         types.StringType,
 											Optional:            true,
+											Computed:            true,
 											Description:         "Destination prefix set to match. Mutually exclusive with the Destination Prefix field.",
 											MarkdownDescription: "Destination prefix set to match. Mutually exclusive with the Destination Prefix field.",
 											Validators: []validator.List{
@@ -367,6 +375,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										"dscp_values": schema.ListAttribute{
 											ElementType:         types.Int64Type,
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match DSCP values.",
 											MarkdownDescription: "Match DSCP values.",
 											Validators: []validator.List{
@@ -375,17 +384,20 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"first_fragment": schema.BoolAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match the first fragment only.",
 											MarkdownDescription: "Match the first fragment only.",
 										},
 										"fragment": schema.BoolAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match any fragment.",
 											MarkdownDescription: "Match any fragment.",
 										},
 										"icmp_codes": schema.ListAttribute{
 											ElementType:         types.Int64Type,
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match a specific ICMP code, as a number between 0-255, e.g. 0.",
 											MarkdownDescription: "Match a specific ICMP code, as a number between 0-255, e.g. 0.",
 											Validators: []validator.List{
@@ -394,6 +406,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"icmp_type_name": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match a specific ICMP type by name, e.g. dest-unreachable.",
 											MarkdownDescription: "Match a specific ICMP type by name, e.g. dest-unreachable.",
 											Validators: []validator.String{
@@ -428,6 +441,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"icmp_type_number": schema.Int64Attribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match a specific ICMP type by number.",
 											MarkdownDescription: "Match a specific ICMP type by number.",
 											Validators: []validator.Int64{
@@ -436,11 +450,13 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"log": schema.BoolAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Log the matches for this entry.",
 											MarkdownDescription: "Log the matches for this entry.",
 										},
 										"protocol_name": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match a specific IP protocol name (specified in the type field of the IP header).",
 											MarkdownDescription: "Match a specific IP protocol name (specified in the type field of the IP header).",
 											Validators: []validator.String{
@@ -477,6 +493,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"protocol_number": schema.Int64Attribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match a specific IP protocol number (specified in the type field of the IP header).",
 											MarkdownDescription: "Match a specific IP protocol number (specified in the type field of the IP header).",
 											Validators: []validator.Int64{
@@ -487,6 +504,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 											Attributes: map[string]schema.Attribute{
 												"burst_size_bytes": schema.Int64Attribute{
 													Optional:            true,
+													Computed:            true,
 													Description:         "The maximum burst size in bytes.",
 													MarkdownDescription: "The maximum burst size in bytes.",
 												},
@@ -499,6 +517,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 												},
 												"peak_rate_kbps": schema.Int64Attribute{
 													Optional:            true,
+													Computed:            true,
 													Description:         "The peak rate in kilobytes per second.",
 													MarkdownDescription: "The peak rate in kilobytes per second.",
 												},
@@ -522,11 +541,13 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 												},
 											},
 											Optional:            true,
+											Computed:            true,
 											Description:         "Rate limit to apply when the action is 'RateLimit'.",
 											MarkdownDescription: "Rate limit to apply when the action is 'RateLimit'.",
 										},
 										"source_port_name": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Source port to match by name.",
 											MarkdownDescription: "Source port to match by name.",
 											Validators: []validator.String{
@@ -703,6 +724,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"source_port_number": schema.Int64Attribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Source port to match by numerical value.",
 											MarkdownDescription: "Source port to match by numerical value.",
 											Validators: []validator.Int64{
@@ -711,6 +733,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"source_port_operator": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Operator to use when matching sourcePort, either Equals, GreaterOrEquals, or LessOrEquals.",
 											MarkdownDescription: "Operator to use when matching sourcePort, either Equals, GreaterOrEquals, or LessOrEquals.",
 											Validators: []validator.String{
@@ -723,17 +746,20 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"source_port_range": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Range of source ports to match, in the format n-m, e.g. 100-200.  The start and end of the range must be port numbers.",
 											MarkdownDescription: "Range of source ports to match, in the format n-m, e.g. 100-200.  The start and end of the range must be port numbers.",
 										},
 										"source_prefix": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Source prefix to match.",
 											MarkdownDescription: "Source prefix to match.",
 										},
 										"source_prefix_sets": schema.ListAttribute{
 											ElementType:         types.StringType,
 											Optional:            true,
+											Computed:            true,
 											Description:         "Source prefix set to match. Mutually exclusive with the Source Prefix field.",
 											MarkdownDescription: "Source prefix set to match. Mutually exclusive with the Source Prefix field.",
 											Validators: []validator.List{
@@ -742,6 +768,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"tcp_flags": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match TCP flags, usable with !, &, | and the flags RST, SYN, and ACK.",
 											MarkdownDescription: "Match TCP flags, usable with !, &, | and the flags RST, SYN, and ACK.",
 										},
@@ -752,6 +779,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 									Optional:            true,
+									Computed:            true,
 									Description:         "IP Entry criteria and actions.",
 									MarkdownDescription: "IP Entry criteria and actions.",
 								},
@@ -759,6 +787,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 									Attributes: map[string]schema.Attribute{
 										"action": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "An action to take, either 'Accept','Drop', or 'RateLimit'.",
 											MarkdownDescription: "An action to take, either 'Accept','Drop', or 'RateLimit'.",
 											Validators: []validator.String{
@@ -771,16 +800,19 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"destination_mac": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match an Ethernet frame if its destination MAC address logically anded with the mask equals this MAC address.",
 											MarkdownDescription: "Match an Ethernet frame if its destination MAC address logically anded with the mask equals this MAC address.",
 										},
 										"destination_mac_mask": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match an Ethernet frame if its destination MAC address logically anded with the mask equals the configured MAC address.",
 											MarkdownDescription: "Match an Ethernet frame if its destination MAC address logically anded with the mask equals the configured MAC address.",
 										},
 										"ethertype": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "An Ethernet frame matches this condition if its ethertype value (after 802.1Q VLAN tags) matches the specified value.",
 											MarkdownDescription: "An Ethernet frame matches this condition if its ethertype value (after 802.1Q VLAN tags) matches the specified value.",
 											Validators: []validator.String{
@@ -808,11 +840,13 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"log": schema.BoolAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Log the matches for this entry.",
 											MarkdownDescription: "Log the matches for this entry.",
 										},
 										"outer_vlan_id_operator": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Operator to use when matching OuterVlanIdValue, either Equals, GreaterOrEquals, or LessOrEquals.",
 											MarkdownDescription: "Operator to use when matching OuterVlanIdValue, either Equals, GreaterOrEquals, or LessOrEquals.",
 											Validators: []validator.String{
@@ -825,11 +859,13 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"outer_vlan_id_range": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Range of Outer vlan IDs to match, in the format n-m, e.g. 100-200",
 											MarkdownDescription: "Range of Outer vlan IDs to match, in the format n-m, e.g. 100-200",
 										},
 										"outer_vlan_id_value": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Ethernet frame matching criteria based on the outermost VLAN ID found before the subinterface-defining VLAN tag (if any) is removed. A value of 'none' will match only untagged frames.",
 											MarkdownDescription: "Ethernet frame matching criteria based on the outermost VLAN ID found before the subinterface-defining VLAN tag (if any) is removed. A value of 'none' will match only untagged frames.",
 										},
@@ -837,6 +873,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 											Attributes: map[string]schema.Attribute{
 												"burst_size_bytes": schema.Int64Attribute{
 													Optional:            true,
+													Computed:            true,
 													Description:         "The maximum burst size in bytes.",
 													MarkdownDescription: "The maximum burst size in bytes.",
 												},
@@ -849,6 +886,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 												},
 												"peak_rate_kbps": schema.Int64Attribute{
 													Optional:            true,
+													Computed:            true,
 													Description:         "The peak rate in kilobytes per second.",
 													MarkdownDescription: "The peak rate in kilobytes per second.",
 												},
@@ -872,16 +910,19 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 												},
 											},
 											Optional:            true,
+											Computed:            true,
 											Description:         "Rate limit to apply when the action is 'RateLimit'.",
 											MarkdownDescription: "Rate limit to apply when the action is 'RateLimit'.",
 										},
 										"source_mac": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match an Ethernet frame if its source MAC address logically anded with the mask equals this MAC address.",
 											MarkdownDescription: "Match an Ethernet frame if its source MAC address logically anded with the mask equals this MAC address.",
 										},
 										"source_mac_mask": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "Match an Ethernet frame if its source MAC address logically anded with the mask equals the configured MAC address.",
 											MarkdownDescription: "Match an Ethernet frame if its source MAC address logically anded with the mask equals the configured MAC address.",
 										},
@@ -892,6 +933,7 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 									Optional:            true,
+									Computed:            true,
 									Description:         "MAC Entry criteria and actions.",
 									MarkdownDescription: "MAC Entry criteria and actions.",
 								},
@@ -924,17 +966,20 @@ func ControlPlaneFilterResourceSchema(ctx context.Context) schema.Schema {
 					"node_selectors": schema.ListAttribute{
 						ElementType:         types.StringType,
 						Optional:            true,
+						Computed:            true,
 						Description:         "Label selector used to select Toponodes on which to deploy the CPM filter.",
 						MarkdownDescription: "Label selector used to select Toponodes on which to deploy the CPM filter.",
 					},
 					"nodes": schema.ListAttribute{
 						ElementType:         types.StringType,
 						Optional:            true,
+						Computed:            true,
 						Description:         "Reference to a list of TopoNodes on which to deploy the CPM filter.",
 						MarkdownDescription: "Reference to a list of TopoNodes on which to deploy the CPM filter.",
 					},
 					"statistics_per_entry": schema.BoolAttribute{
 						Optional:            true,
+						Computed:            true,
 						Description:         "Enable or disable per-entry counters.",
 						MarkdownDescription: "Enable or disable per-entry counters.",
 					},

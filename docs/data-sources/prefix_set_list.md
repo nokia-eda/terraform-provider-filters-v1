@@ -35,10 +35,6 @@ description: |-
 <a id="nestedatt--items"></a>
 ### Nested Schema for `items`
 
-Optional:
-
-- `spec` (Attributes) PrefixSetSpec defines a collection of IP prefixes. Each set should contain only IPv4 or IPv6 prefixes. (see [below for nested schema](#nestedatt--items--spec))
-
 Read-Only:
 
 - `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
@@ -46,23 +42,8 @@ Read-Only:
 - `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
+- `spec` (Attributes) PrefixSetSpec defines a collection of IP prefixes. Each set should contain only IPv4 or IPv6 prefixes. (see [below for nested schema](#nestedatt--items--spec))
 - `status` (Attributes) PrefixSetStatus defines the observed state of PrefixSet (see [below for nested schema](#nestedatt--items--status))
-
-<a id="nestedatt--items--spec"></a>
-### Nested Schema for `items.spec`
-
-Optional:
-
-- `prefixes` (Attributes List) List of IPv4 or IPv6 prefixes in CIDR notation. (see [below for nested schema](#nestedatt--items--spec--prefixes))
-
-<a id="nestedatt--items--spec--prefixes"></a>
-### Nested Schema for `items.spec.prefixes`
-
-Optional:
-
-- `prefix` (String) The IPv4 or IPv6 prefix in CIDR notation.
-
-
 
 <a id="nestedatt--items--alarms"></a>
 ### Nested Schema for `items.alarms`
@@ -92,6 +73,22 @@ Read-Only:
 - `labels` (Map of String)
 - `name` (String)
 - `namespace` (String)
+
+
+<a id="nestedatt--items--spec"></a>
+### Nested Schema for `items.spec`
+
+Read-Only:
+
+- `prefixes` (Attributes List) List of IPv4 or IPv6 prefixes in CIDR notation. (see [below for nested schema](#nestedatt--items--spec--prefixes))
+
+<a id="nestedatt--items--spec--prefixes"></a>
+### Nested Schema for `items.spec.prefixes`
+
+Read-Only:
+
+- `prefix` (String) The IPv4 or IPv6 prefix in CIDR notation.
+
 
 
 <a id="nestedatt--items--status"></a>
